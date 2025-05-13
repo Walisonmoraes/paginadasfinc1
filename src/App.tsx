@@ -1,0 +1,619 @@
+import React, { useState } from 'react';
+
+const App: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  
+  const openImageModal = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+  };
+  
+  const closeImageModal = () => {
+    setSelectedImage(null);
+  };
+  return (
+    <div className="min-h-screen bg-gray-100 text-gray-800">
+      {/* Hero Section */}
+      <header className="relative bg-cover bg-center h-screen flex items-center" style={{ backgroundImage: "url('/banner1.svg')" }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">Casa à Venda em Sinop</h1>
+            <p className="text-xl md:text-2xl text-white mb-10 font-light">O lar dos seus sonhos está aqui. Conforto, qualidade e localização privilegiada.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#contact" className="btn-modern bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
+                Entre em Contato
+              </a>
+              <a href="#gallery" className="btn-modern bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition duration-300 border border-white/30 transform hover:scale-105">
+                Ver Imóvel
+              </a>
+            </div>
+            <div className="mt-12 flex justify-center space-x-6">
+              <div className="bg-white/20 backdrop-blur-sm py-2 px-4 rounded-full text-white flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clipRule="evenodd" />
+                </svg>
+                <span>180 m²</span>
+              </div>
+              <div className="bg-white/20 backdrop-blur-sm py-2 px-4 rounded-full text-white flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>
+                <span>3 Quartos (1 Suíte)</span>
+              </div>
+              <div className="bg-white/20 backdrop-blur-sm py-2 px-4 rounded-full text-white flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+                <span>Ótima Localização</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
+          <a href="#about" className="text-white p-2 rounded-full bg-white/20 backdrop-blur-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </a>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-12">
+        {/* About Section */}
+        <section id="about" className="py-20 bg-gradient-to-b from-white to-blue-50">
+          <div className="container mx-auto px-6">
+            <div className="flex items-center justify-center mb-4">
+              <div className="h-1 w-10 bg-blue-600 rounded-full mr-2"></div>
+              <h2 className="text-4xl font-bold text-blue-800">Sobre o Imóvel</h2>
+              <div className="h-1 w-10 bg-blue-600 rounded-full ml-2"></div>
+            </div>
+            <p className="text-gray-600 text-center mb-12 max-w-3xl mx-auto">Conheça os detalhes desta casa espaçosa e moderna, projetada para proporcionar conforto e bem-estar.</p>
+            
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="relative overflow-hidden">
+                  <img 
+                    src="/fachada.svg" 
+                    alt="Fachada da Casa Moderna"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">180 m² de área construída</span>
+                  </div>
+                </div>
+                
+                <div className="p-8 md:p-10 flex flex-col justify-center">
+                  <h3 className="text-2xl font-bold text-blue-800 mb-6 border-b-2 border-blue-100 pb-3">O Lar Perfeito Para Sua Família</h3>
+                  
+                  <div className="space-y-6">
+                    <div className="flex items-start">
+                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold text-gray-800 mb-1">Ambientes Integrados</h4>
+                        <p className="text-gray-600">Cozinha americana integrada à sala, criando um ambiente amplo e acolhedor para reunir amigos e familiares.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold text-gray-800 mb-1">Localização Privilegiada</h4>
+                        <p className="text-gray-600">Fácil acesso a escolas, comércio e serviços essenciais em uma das áreas mais valorizadas de Sinop.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold text-gray-800 mb-1">Conforto e Bem-estar</h4>
+                        <p className="text-gray-600">Ótima ventilação e iluminação natural, garantindo um ambiente saudável e agradável para toda a família.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className="mb-16 bg-gradient-to-br from-white to-blue-50 p-10 rounded-2xl shadow-xl">
+          <h2 className="text-4xl font-bold mb-10 text-center text-blue-800">
+            Características Principais
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="feature-item bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-blue-500 transform hover:-translate-y-1">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-blue-700">3 Quartos Amplos (1 Suíte)</h3>
+              </div>
+              <p className="text-gray-600 ml-16">Espaço e privacidade para toda a família.</p>
+            </div>
+            
+            <div className="feature-item bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-blue-500 transform hover:-translate-y-1">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-blue-700">3 Banheiros Modernos</h3>
+              </div>
+              <p className="text-gray-600 ml-16">Conforto e funcionalidade em cada detalhe.</p>
+            </div>
+            
+            <div className="feature-item bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-blue-500 transform hover:-translate-y-1">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-blue-700">2 Salas Espaçosas</h3>
+              </div>
+              <p className="text-gray-600 ml-16">Ambientes perfeitos para receber e relaxar.</p>
+            </div>
+            
+            <div className="feature-item bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-blue-500 transform hover:-translate-y-1">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-blue-700">Cozinha Americana</h3>
+              </div>
+              <p className="text-gray-600 ml-16">Integrada e ideal para momentos em família.</p>
+            </div>
+            
+            <div className="feature-item bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-blue-500 transform hover:-translate-y-1">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-blue-700">Quintal apto a Churrasqueira</h3>
+              </div>
+              <p className="text-gray-600 ml-16">Lazer e diversão garantidos ao ar livre.</p>
+            </div>
+            
+            <div className="feature-item bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-blue-500 transform hover:-translate-y-1">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-blue-700">180 m² de Área Construída</h3>
+              </div>
+              <p className="text-gray-600 ml-16">Espaço otimizado para o seu conforto.</p>
+            </div>
+          </div>
+        </section>
+
+
+        {/* Gallery Section */}
+        <section id="gallery" className="py-20 bg-gradient-to-b from-white to-blue-50">
+          <div className="container mx-auto px-6">
+            <div className="flex items-center justify-center mb-4">
+              <div className="h-1 w-10 bg-blue-600 rounded-full mr-2"></div>
+              <h2 className="text-4xl font-bold text-blue-800">Conheça Cada Detalhe da Sua Nova Casa</h2>
+              <div className="h-1 w-10 bg-blue-600 rounded-full ml-2"></div>
+            </div>
+            <p className="text-gray-600 text-center mb-12 max-w-3xl mx-auto">Clique nas imagens para visualizá-las em tamanho ampliado e apreciar cada detalhe deste imóvel.</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="group relative rounded-xl shadow-xl overflow-hidden cursor-pointer hover-lift" onClick={() => openImageModal("/1.svg")}>
+                <img src="/1.svg" alt="Quarto" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-xl font-semibold mb-1">Quarto Principal</h3>
+                  <p className="text-sm">Amplo e aconchegante</p>
+                </div>
+                <div className="absolute top-3 right-3 bg-blue-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform rotate-0 group-hover:rotate-90">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              
+              <div className="group relative rounded-xl shadow-xl overflow-hidden cursor-pointer hover-lift" onClick={() => openImageModal("/2.svg")}>
+                <img src="/2.svg" alt="Corredor" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-xl font-semibold mb-1">Corredor</h3>
+                  <p className="text-sm">Acabamento de qualidade</p>
+                </div>
+                <div className="absolute top-3 right-3 bg-blue-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform rotate-0 group-hover:rotate-90">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              
+              <div className="group relative rounded-xl shadow-xl overflow-hidden cursor-pointer hover-lift" onClick={() => openImageModal("/3.svg")}>
+                <img src="/3.svg" alt="Cozinha" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-xl font-semibold mb-1">Cozinha</h3>
+                  <p className="text-sm">Moderna e funcional</p>
+                </div>
+                <div className="absolute top-3 right-3 bg-blue-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform rotate-0 group-hover:rotate-90">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              
+              <div className="group relative rounded-xl shadow-xl overflow-hidden cursor-pointer hover-lift" onClick={() => openImageModal("/4.svg")}>
+                <img src="/4.svg" alt="Sala" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-xl font-semibold mb-1">Sala de Estar</h3>
+                  <p className="text-sm">Espaçosa e bem iluminada</p>
+                </div>
+                <div className="absolute top-3 right-3 bg-blue-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform rotate-0 group-hover:rotate-90">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              
+              <div className="group relative rounded-xl shadow-xl overflow-hidden cursor-pointer hover-lift" onClick={() => openImageModal("/5.svg")}>
+                <img src="/5.svg" alt="Área externa" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-xl font-semibold mb-1">Área Externa</h3>
+                  <p className="text-sm">Perfeita para momentos de lazer</p>
+                </div>
+                <div className="absolute top-3 right-3 bg-blue-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform rotate-0 group-hover:rotate-90">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              
+              <div className="group relative rounded-xl shadow-xl overflow-hidden cursor-pointer hover-lift" onClick={() => openImageModal("/6.svg")}>
+                <img src="/6.svg" alt="Banheiro" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-xl font-semibold mb-1">Banheiro</h3>
+                  <p className="text-sm">Moderno e bem equipado</p>
+                </div>
+                <div className="absolute top-3 right-3 bg-blue-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform rotate-0 group-hover:rotate-90">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        {/* Pricing and Conditions Section */}
+        <section id="pricing" className="mb-16 bg-blue-50 p-8 rounded-lg shadow-xl">
+          <h2 className="text-3xl font-semibold mb-6 text-center text-blue-700">Preço e Condições</h2>
+          <div className="text-center">
+            <p className="text-4xl font-bold text-green-600 mb-4">R$ 770.000,00</p>
+            <p className="text-lg mb-2">Aceitamos proposta de troca por casa menor ou carro.</p>
+            <p className="text-lg font-semibold">Negociação facilitada e flexível!</p>
+          </div>
+        </section>
+
+        {/* WhatsApp Contact Section */}
+        <section id="whatsapp-contact" className="mb-16 bg-gradient-to-r from-green-50 to-green-100 p-10 rounded-2xl shadow-xl">
+          <h2 className="text-4xl font-bold mb-6 text-center text-green-700">
+            Fale Conosco pelo WhatsApp
+          </h2>
+          <div className="text-center">
+            <p className="text-lg mb-8 max-w-2xl mx-auto">
+              Tem interesse neste imóvel? Entre em contato conosco pelo WhatsApp para mais informações ou para agendar uma visita. Estamos à disposição para atendê-lo!
+            </p>
+            <a 
+              href="https://wa.me/5566992620761?text=Olá,%20tenho%20interesse%20na%20casa%20à%20venda%20em%20Sinop.%20Poderia%20me%20dar%20mais%20informações?" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition duration-300 transform hover:scale-105"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Conversar pelo WhatsApp
+            </a>
+          </div>
+        </section>
+
+
+        {/* Contact Section */}
+        <section id="contact" className="mb-16 bg-gradient-to-br from-blue-50 to-gray-50 p-10 rounded-2xl shadow-xl">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold mb-6 text-center text-blue-800">Entre em Contato</h2>
+            
+            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 mb-8">
+              <div className="flex items-center justify-center mb-6">
+                <div className="w-12 h-1 bg-blue-600 rounded-full mx-2"></div>
+                <p className="text-xl font-medium text-gray-700">Agende uma visita</p>
+                <div className="w-12 h-1 bg-blue-600 rounded-full mx-2"></div>
+              </div>
+              
+              <p className="text-lg text-center mb-10 text-gray-600">
+                Não perca esta oportunidade única! Preencha o formulário abaixo e venha conhecer a sua nova casa.
+              </p>
+              
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="block text-gray-700 font-medium text-sm uppercase tracking-wider">Nome</label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-colors" 
+                        placeholder="Seu nome completo" 
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="block text-gray-700 font-medium text-sm uppercase tracking-wider">Email</label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                      </div>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-colors" 
+                        placeholder="seuemail@exemplo.com" 
+                      />
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="block text-gray-700 font-medium text-sm uppercase tracking-wider">Telefone (Opcional)</label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                      </svg>
+                    </div>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      name="phone" 
+                      className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-colors" 
+                      placeholder="(XX) XXXXX-XXXX" 
+                    />
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="message" className="block text-gray-700 font-medium text-sm uppercase tracking-wider">Mensagem</label>
+                  <div className="relative">
+                    <div className="absolute top-3 left-3 flex items-start pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <textarea 
+                      id="message" 
+                      name="message" 
+                      rows={4} 
+                      className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-colors" 
+                      placeholder="Escreva sua mensagem ou dúvida aqui..."
+                    ></textarea>
+                  </div>
+                </div>
+                
+                <div className="pt-4">
+                  <button 
+                    type="submit" 
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] flex items-center justify-center"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                    </svg>
+                    Enviar Mensagem
+                  </button>
+                </div>
+              </form>
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-8 mt-8">
+              <div className="flex items-center text-blue-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Resposta rápida</span>
+              </div>
+              <div className="flex items-center text-blue-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Atendimento personalizado</span>
+              </div>
+              <div className="flex items-center text-blue-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Visitas flexíveis</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Consultant Section */}
+        <section className="py-16 mb-0 bg-gradient-to-r from-blue-600 to-blue-800">
+          <div className="container mx-auto px-6">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-3xl font-bold text-center text-white mb-10">Sua Consultora Especializada</h2>
+              
+              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.01] transition-all duration-300">
+                <div className="flex flex-col md:flex-row">
+                  {/* Coluna da foto - 40% em desktop */}
+                  <div className="md:w-2/5 bg-gradient-to-br from-blue-500 to-blue-700 p-8 flex items-center justify-center">
+                    <div className="relative">
+                      <div className="w-40 h-40 bg-white rounded-full p-2 shadow-xl">
+                        <div className="w-full h-full bg-gray-200 rounded-full overflow-hidden border-4 border-white">
+                          <img 
+                            src="/lana.svg" 
+                            alt="Foto da Consultora Lana de Paula" 
+                            className="w-full h-full object-cover" 
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = 'https://via.placeholder.com/200?text=Lana';
+                            }} 
+                          />
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  
+                  {/* Coluna das informações - 60% em desktop */}
+                  <div className="md:w-3/5 p-8 md:p-10">
+                    <div className="flex flex-col h-full justify-between">
+                      <div>
+                        <div className="flex items-center mb-4">
+                          <h3 className="text-3xl font-bold text-blue-800">Lana de Paula</h3>
+                          <div className="ml-4 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                            Especialista em Imóveis
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-600 text-lg mb-6 border-l-4 border-blue-500 pl-4 italic">
+                          "Compromisso com a excelência e satisfação dos clientes em cada negociação."
+                        </p>
+                        
+                        <div className="grid grid-cols-1 gap-4 mb-6">
+                          <div className="flex items-center bg-blue-50 p-3 rounded-lg overflow-hidden">
+                            <div className="bg-blue-100 p-2 rounded-full mr-3 flex-shrink-0">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                              </svg>
+                            </div>
+                            <a href="mailto:facilitacredsinop@facilitacredit.com.br" className="text-blue-800 hover:text-blue-600 transition-colors font-medium text-sm md:text-base truncate">
+                              facilitacredsinop@facilitacredit.com.br
+                            </a>
+                          </div>
+                          
+                          <div className="flex items-center bg-blue-50 p-3 rounded-lg overflow-hidden">
+                            <div className="bg-blue-100 p-2 rounded-full mr-3 flex-shrink-0">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                              </svg>
+                            </div>
+                            <a href="tel:+556699262-0761" className="text-blue-800 hover:text-blue-600 transition-colors font-medium text-sm md:text-base">
+                              (66) 99262-0761
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-4 flex justify-end">
+                        <a 
+                          href="https://wa.me/5566992620761?text=Olá%20Lana,%20vi%20seu%20anúncio%20da%20casa%20em%20Sinop%20e%20gostaria%20de%20mais%20informações" 
+                          className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-[1.02]"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                          </svg>
+                          Falar com Lana pelo WhatsApp
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4" onClick={closeImageModal}>
+          <div className="relative max-w-5xl max-h-[90vh] overflow-hidden">
+            <img 
+              src={selectedImage} 
+              alt="Imagem ampliada" 
+              className="max-w-full max-h-[90vh] object-contain" 
+            />
+            <button 
+              className="absolute top-4 right-4 bg-white text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"
+              onClick={(e) => {
+                e.stopPropagation();
+                closeImageModal();
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+      
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-10">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-center md:gap-16 lg:gap-24">
+            <div className="mb-8 md:mb-0 text-center">
+              <div className="flex justify-center">
+                <img src="/logo.svg" alt="Logo" className="h-70 w-auto mb-4 mx-auto" />
+              </div>
+              <address className="text-gray-300 text-sm not-italic">
+                Rua das Pitangueiras, 274<br />
+                Setor Industrial, CEP 78550-274<br />
+                Sinop, MT
+              </address>
+            </div>
+            
+
+            <div className="text-center">
+              <p className="mb-2">&copy; {new Date().getFullYear()} Facilita Imóveis. Todos os direitos reservados.</p>
+              <p>Sinop, MT</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
