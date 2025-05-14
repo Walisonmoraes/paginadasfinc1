@@ -20,7 +20,7 @@ const App: React.FC = () => {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">Casa à Venda em Sinop</h1>
             <p className="text-xl md:text-2xl text-white mb-10 font-light">O lar dos seus sonhos está aqui. Conforto, qualidade e localização privilegiada.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contact" className="btn-modern bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
+              <a href="#consultora" className="btn-modern bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
                 Entre em Contato
               </a>
               <a href="#gallery" className="btn-modern bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition duration-300 border border-white/30 transform hover:scale-105">
@@ -108,7 +108,7 @@ const App: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="text-lg font-semibold text-gray-800 mb-1">Localização Privilegiada</h4>
-                        <p className="text-gray-600">Fácil acesso a escolas, comércio e serviços essenciais em uma das áreas mais valorizadas de Sinop.</p>
+                        <p className="text-gray-600">Rua das Dombeias, número 22, Jd das Oliveiras, CEP 78552-349, Sinop-MT. Fácil acesso a escolas, comércio e serviços essenciais em uma das áreas mais valorizadas de Sinop.</p>
                       </div>
                     </div>
                     
@@ -361,7 +361,19 @@ const App: React.FC = () => {
                 Não perca esta oportunidade única! Preencha o formulário abaixo e venha conhecer a sua nova casa.
               </p>
               
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+                const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+                const phone = (form.elements.namedItem('phone') as HTMLInputElement).value;
+                const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+                
+                const subject = `Contato do site - ${name}`;
+                const body = `Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\n\nMensagem:\n${message}`;
+                
+                window.location.href = `mailto:facilitacredsinop@facilitacredit.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+              }}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="block text-gray-700 font-medium text-sm uppercase tracking-wider">Nome</label>
@@ -476,7 +488,7 @@ const App: React.FC = () => {
 
         {/* Consultant Section */}
         <section className="py-16 mb-0 bg-gradient-to-r from-blue-600 to-blue-800">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-6" id="consultora">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-3xl font-bold text-center text-white mb-10">Sua Consultora Especializada</h2>
               
