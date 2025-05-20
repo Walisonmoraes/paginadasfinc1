@@ -1,0 +1,48 @@
+/* Efeito de brilho neon para botões */
+/* Verde */
+.glow-green-500 {
+  box-shadow: 0 0 5px #10b981, 0 0 15px #10b981, 0 0 20px #10b981;
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 5px #10b981, 0 0 15px #10b981;
+  }
+  50% {
+    box-shadow: 0 0 10px #10b981, 0 0 20px #10b981, 0 0 30px #10b981;
+  }
+  100% {
+    box-shadow: 0 0 5px #10b981, 0 0 15px #10b981;
+  }
+}
+
+/* Efeito hover mais intenso - verde */
+.glow-green-500:hover {
+  box-shadow: 0 0 10px #10b981, 0 0 20px #10b981, 0 0 30px #10b981, 0 0 40px #10b981;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+/* Azul */
+.glow-blue-500 {
+  box-shadow: 0 0 5px #3b82f6, 0 0 15px #3b82f6, 0 0 20px #3b82f6;
+  animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-blue {
+  0% {
+    box-shadow: 0 0 5px #3b82f6, 0 0 15px #3b82f6;
+  }
+  50% {
+    box-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6, 0 0 30px #3b82f6;
+  }
+  100% {
+    box-shadow: 0 0 5px #3b82f6, 0 0 15px #3b82f6;
+  }
+}
+
+/* Efeito hover mais intenso - azul */
+.glow-blue-500:hover {
+  box-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6, 0 0 30px #3b82f6, 0 0 40px #3b82f6;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
