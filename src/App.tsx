@@ -58,7 +58,7 @@ const App: React.FC = () => {
                 
                 <form 
                   className="space-y-6" 
-                  action="https://formsubmit.co/atendimento@fincconsorcio.com" 
+                  action="https://formsubmit.co/atendimento@fincconsorcios.com" 
                   method="POST"
                   onSubmit={(e) => {
                     // Não precisamos mais prevenir o comportamento padrão
